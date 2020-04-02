@@ -33,7 +33,7 @@
     width: 100%;
     height: 40px;
     border-collapse: collapse;
-    border: 0px solid #fff;
+    border: 0 solid #fff;
 }
 
 .log-container table .header-tr {

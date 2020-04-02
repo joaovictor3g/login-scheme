@@ -19,7 +19,7 @@ export default function Logged() {
     
     async function renderTable() {
         const response = await api.get(`/list/${id}`);
-
+        console.log(response.data);
         setUser(response.data);
     };
 
@@ -32,7 +32,7 @@ export default function Logged() {
     return (
         <div className="all-container">
             <header>
-                <h1>Bem-vindo, {user.nome}</h1>
+                <h1>Bem-vindo, {user.nome_login}</h1>
                 <button onClick={logOut}>
                     <FiPower size={32} />
                 </button>
@@ -44,11 +44,15 @@ export default function Logged() {
                             <td>Matricula</td>
                             <td>Curso</td>
                             <td>E-mail</td>
+                            <td>Disciplina</td>
+                            <td>Turno</td>
                         </tr>
                         <tr className="user-container">
                             <td>{user.matricula}</td>
-                            <td>{user.curso}</td>
+                            <td>{user.nome_curso}</td>
                             <td>{user.email}</td>
+                            <td>{user.nome_disciplina}</td>
+                            <td>{user.turno}</td>
                         </tr>
                     </tbody>
                 </table>

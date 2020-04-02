@@ -4,10 +4,13 @@ exports.up = function(knex) {
         table.increments();
 
         table.string('matricula').notNullable();
-        table.string('nome').notNullable();
+        table.string('nome_login').notNullable();
         table.string('email').notNullable();
         table.string('senha').notNullable();
-        table.string('curso').notNullable();
+        
+        table.integer('id_curso').notNullable();
+        table.foreign('id_curso').references('id').inTable('cursos');
+
     }) 
 };
 

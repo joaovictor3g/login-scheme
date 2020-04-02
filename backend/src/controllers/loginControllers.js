@@ -14,16 +14,16 @@ module.exports = {
     },
 
     async createLogin(req, res) {
-        const { nome, email, senha, curso } = req.body;
+        const { nome_login, email, senha, id_curso } = req.body;
 
         const matricula = generatePrimary();
 
         await connection('logins').insert({
             matricula,
-            nome,
+            nome_login,
             email,
             senha,
-            curso
+            id_curso
         })
         return res.json({ matricula });
     },
@@ -31,11 +31,13 @@ module.exports = {
     async listByIdLogged(req, res) {
         const { id } = req.params;
 
-        const [all] = await connection('logins')
-                    .where('id', id)
-                    .select('*');
+        const [login] = await connection('logins')
+                    .where('logins.id', id)
+                    .join('cursos', 'cursos.id', '=', 'logins.id_curso')
+                    .join('disciplinas', 'disciplinas.id', '=', 'disciplinas.curso_id')
+                    .select(['logins.*', 'cursos.nome_curso','cursos.turno', 'disciplinas.nome_disciplina']);
 
-        return res.json(all);
+        return res.json(login);
 
     }
 };
