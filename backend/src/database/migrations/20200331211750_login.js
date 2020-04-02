@@ -1,7 +1,9 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable('logins', function (table){
-        table.string('matricula').primary();
+        table.increments();
+
+        table.string('matricula').notNullable();
         table.string('nome').notNullable();
         table.string('email').notNullable();
         table.string('senha').notNullable();

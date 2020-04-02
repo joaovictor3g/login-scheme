@@ -1,0 +1,38 @@
+.principal-container {
+    background: #FFF;
+    width: 500px;
+    height: 700px;
+    margin: 30px auto;
+    padding: 20px 20px;
+    border: 1px solid #ddd;
+    position: relative;
+
+}
+
+.principal-container header {
+    border: 1px solid #fff;
+    font-size: 25px;
+    font-weight: bold;
+    width: 100%;
+    height: 70px;
+    border-radius: 5px;
+    background: #ff704d;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.principal-container .first-input {
+    margin-top: 20px;
+}
+
+.principal-container input {
+    width: 100%;
+    height: 30px;
+    font-size: 16px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin-top: 5px;
+}

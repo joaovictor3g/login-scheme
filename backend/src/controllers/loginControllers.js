@@ -5,12 +5,12 @@ module.exports = {
     async Logged(req, res) {
         const { matricula, senha } = req.body;
 
-        const aluno = await connection('logins')
+        const [id] = await connection('logins')
             .where('matricula', matricula)
             .where('senha', senha)
-            .select('*');
+            .select('id');
         
-        return res.json({ aluno });
+        return res.json(id);
     },
 
     async createLogin(req, res) {
@@ -28,8 +28,12 @@ module.exports = {
         return res.json({ matricula });
     },
 
-    async listAll(req, res) {
-        const all = await connection('logins').select('*');
+    async listByIdLogged(req, res) {
+        const { id } = req.params;
+
+        const [all] = await connection('logins')
+                    .where('id', id)
+                    .select('*');
 
         return res.json(all);
 
