@@ -34,10 +34,19 @@ module.exports = {
         const [login] = await connection('logins')
                     .where('logins.id', id)
                     .join('cursos', 'cursos.id', '=', 'logins.id_curso')
-                    .join('disciplinas', 'disciplinas.id', '=', 'disciplinas.curso_id')
-                    .select(['logins.*', 'cursos.nome_curso','cursos.turno', 'disciplinas.nome_disciplina']);
+                    .join('disciplinas', 'cursos.id', '=', 'disciplinas.curso_id')
+                    .select(['logins.*', 'cursos.nome_curso','cursos.turno', 'disciplinas.*'])
+                
 
         return res.json(login);
 
+    },
+
+    async listAllCourses(req, res) {
+
+        const courses = await connection('cursos')
+                        .select('*');
+
+        return res.json(courses);   
     }
 };

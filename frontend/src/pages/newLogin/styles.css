@@ -1,3 +1,14 @@
+.back-link {
+    color:#FFF;
+    background: transparent;
+    border: 0;
+    width: 100%;
+    background: #ff704d;
+    height: 60px;
+    text-align: left;
+    padding: 0 20px;
+}
+
 .principal-container {
     background: #FFF;
     width: 500px;
@@ -30,9 +41,46 @@
 
 .principal-container input {
     width: 100%;
-    height: 30px;
+    height: 35px;
     font-size: 16px;
     border: 1px solid #000;
     border-radius: 5px;
     margin-top: 5px;
+}
+
+.principal-container select {
+    width: 70%;
+    height: 30px;
+    border-radius: 5px;
+    color: #000;
+    font-size: 16px;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.principal-container select option {
+    text-align: center;
+}
+
+.principal-container .first-button {
+    margin-top: 300px;
+}
+
+.principal-container button {
+    margin-top: 10px;
+    width: 100%;
+    height: 31px;
+    border: 0;
+    color: #FFF;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight:bold;
+    background: #ff704d;
+    transition: all 0.2s;
+}
+
+.principal-container button:hover {
+    opacity: 0.5;
 }
