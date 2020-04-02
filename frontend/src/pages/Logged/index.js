@@ -6,10 +6,12 @@ import api from '../../services/api';
 
 import './styles.css';
 
-export default function Logged(props) {
-    const { id } = props.match.params;
+export default function Logged() {
+    //const { id } = props.match.params;
     const [user, setUser] = useState([]);
     const history = useHistory();
+
+    const id = localStorage.getItem('id');
 
     useEffect(() => {
         renderTable();
@@ -22,6 +24,8 @@ export default function Logged(props) {
     };
 
     function logOut() {
+        localStorage.clear();
+
         history.push('/');
     }
 

@@ -23,12 +23,13 @@ export default function Login() {
             
             if(!response.data) {
                 alert('Matricula e/ou Senha incorretas');
+                eraseFields();
                 return;
             }
             alert(`Vocề está logado`);
-
-            console.log(response.data);
             
+            localStorage.setItem('id', response.data.id);
+
             history.push(`/logged/${response.data.id}`);
     
         } catch(err) {
