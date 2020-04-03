@@ -21,7 +21,7 @@ export default function NewLogin() {
     }, []);
 
     async function fillComboBox() {
-        const response = await api.get('/list');
+        const response = await api.get('/listCourses');
 
         setCourses(response.data);
     }
@@ -43,12 +43,10 @@ export default function NewLogin() {
 
         try {
             const response = await api.post('/new', data);
-
-            console.log(response.data);
-
-            console.log(id_curso);
             
             alert(`Deu certo, sua matrícula: ${response.data.matricula}`);
+
+            eraseFields();
 
         } catch(err) {
             alert('erro');
@@ -62,6 +60,13 @@ export default function NewLogin() {
 
     function myProfileOnGithub() {
         window.open('http://github.com/joaovictor3g/login-scheme');
+    }
+
+    function eraseFields() {
+        setIndex(0);
+        setNome('');
+        setPass('');
+        setEmail('');
     }
 
     return (
@@ -94,7 +99,7 @@ export default function NewLogin() {
                     placeholder="Defina uma senha" 
                     value={senha}
                 />
-                <select id="combo-box" onChange={e => setIndex(e.target.selectedIndex)}>
+                <select id="combo-box" onChange={e => setIndex(e.target.selectedIndex)} >
                     <option >Selecione seu curso</option>
                     {courses.map(course => (
                         <option key={course.id}>{course.nome_curso}</option>
