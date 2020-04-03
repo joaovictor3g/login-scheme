@@ -1,7 +1,9 @@
 import React, {  useEffect ,useState } from 'react'
+import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/api';
 
 import { FiArrowLeft } from 'react-icons/fi';
+import { GoMarkGithub } from 'react-icons/go';
 
 import './styles.css';
 
@@ -11,6 +13,8 @@ export default function NewLogin() {
     const [nome_login, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setPass] = useState('');  
+
+    const history = useHistory();
 
     useEffect(() => {
         fillComboBox();
@@ -52,11 +56,23 @@ export default function NewLogin() {
 
     }
 
+    function returnToMenu() {
+        history.push('/');
+    }
+
+    function myProfileOnGithub() {
+        window.open('http://github.com/joaovictor3g/login-scheme');
+    }
+
     return (
         <>
-        <button className="back-link">
-            <FiArrowLeft size={33} />
-        </button>
+        <header className="back-to-principal">
+            <FiArrowLeft size={33} onClick={returnToMenu}/>
+            <p>SAPPI</p>
+            <aside>
+                <GoMarkGithub size={30} onClick={myProfileOnGithub}/>
+                </aside>
+        </header>
         <div className="principal-container">
             <header>Novo Login</header>
             <form onSubmit={createNewLogin} >

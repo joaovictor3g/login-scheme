@@ -1,3 +1,24 @@
+.back-to-principal-container {
+    color: #FFF;
+    border: 0;
+    width: 100%;
+    background: #ff704d;
+    height: 70px;
+    padding: 10px 20px;
+    margin-left: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+        
+}
+
+
+.back-to-principal-container p {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+       
+}
 .all-container header {
     display: flex;
     justify-content: space-between;
@@ -5,17 +26,29 @@
     padding: 0 50px;
 }
 
-.all-container header button {
-    border: 1px solid #ff704d;
+.back-to-principal-container .log-out-button {
+    border: 1px solid #FFF;
     border-radius: 5px;
     height: 50px;
     width: 50px;
-    background: transparent;
-    color: #ff704d;
-    justify-content: space-between;
-    transition: all 0.2s;
-   
+    display: flex;
+    align-items: center;
+    text-align: center;
+
 }
+.back-to-principal-container .log-out-button svg{
+    margin-left: 7px;
+
+}
+
+.back-to-principal-container svg:hover {
+    opacity: 0.5;
+}
+
+.back-to-principal-container .log-out-button:hover {
+    opacity: 0.5;
+}
+
 
 .all-container header button:hover {
     opacity: 0.5;
