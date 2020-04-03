@@ -36,7 +36,7 @@ module.exports = {
                     .join('cursos', 'cursos.id', '=', 'logins.id_curso')
                     .join('disciplinas', 'cursos.id', '=', 'disciplinas.curso_id')
                     .select(['logins.*', 'cursos.nome_curso','cursos.turno', 'disciplinas.*'])
-                
+                    
 
         return res.json(login);
 
@@ -48,5 +48,13 @@ module.exports = {
                         .select('*');
 
         return res.json(courses);   
+    
+    }, 
+
+    async listSubjects(req, res) {
+        
+        const subjects = await connection('disciplinas').select('*');
+
+        return res.json(subjects);
     }
 };
