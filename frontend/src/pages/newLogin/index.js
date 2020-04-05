@@ -12,7 +12,8 @@ export default function NewLogin() {
     const [id_curso, setIndex] = useState(0);
     const [nome_login, setNome] = useState('');
     const [email, setEmail] = useState('');
-    const [senha, setPass] = useState('');  
+    const [senha, setPass] = useState(''); 
+    const [combobox, setComboBox] = useState(''); 
 
     const history = useHistory();
 
@@ -43,6 +44,8 @@ export default function NewLogin() {
 
         try {
             const response = await api.post('/new', data);
+
+            console.log(response.data);
             
             alert(`Deu certo, sua matrícula: ${response.data.matricula}`);
 
@@ -63,7 +66,7 @@ export default function NewLogin() {
     }
 
     function eraseFields() {
-        setIndex(0);
+        setComboBox('Selecione seu curso');
         setNome('');
         setPass('');
         setEmail('');
@@ -99,8 +102,8 @@ export default function NewLogin() {
                     placeholder="Defina uma senha" 
                     value={senha}
                 />
-                <select id="combo-box" onChange={e => setIndex(e.target.selectedIndex)} >
-                    <option >Selecione seu curso</option>
+                <select id="combo-box" onChange={e => setIndex(e.target.selectedIndex)}>
+                    <option>Selecione seu curso</option>
                     {courses.map(course => (
                         <option key={course.id}>{course.nome_curso}</option>
                         

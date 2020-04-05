@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FiPower } from 'react-icons/fi';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 import { GoMarkGithub } from 'react-icons/go';
 
@@ -31,7 +31,7 @@ export default function Logged() {
     function logOut() {
         localStorage.clear();
 
-        history.push('/');
+        history.push('/'); 
     }
     
     function myProfileOnGithub() {
@@ -42,7 +42,7 @@ export default function Logged() {
         <>
         <header className="back-to-principal-container">
             <aside>
-                <GoMarkGithub size={30} onClick={myProfileOnGithub}/>  
+                <GoMarkGithub size={33} onClick={myProfileOnGithub}/>  
             </aside>
             <p>SAPPI</p>
             <p className="log-out-button"><FiPower size={32} onClick={logOut}/></p>

@@ -35,7 +35,7 @@ module.exports = {
                     .where('logins.id', id)
                     .join('cursos', 'cursos.id', '=', 'logins.id_curso')
                     .join('disciplinas', 'cursos.id', '=', 'disciplinas.curso_id')
-                    .select(['logins.*', 'cursos.nome_curso','cursos.turno', 'disciplinas.*'])
+                    .select(['logins.*', 'cursos.nome_curso','cursos.turno', 'disciplinas.nome_disciplina']);
                     
 
         return res.json(login);
