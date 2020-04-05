@@ -1,16 +1,13 @@
-# Ideias de projetos, usando: Node.js, ReactJS.
+# Sappi. An Academic system.
 
-- Reprodutor de músicas Web: APIs publicas do Spotify, Apple Music.
+### Project
+Management academic.
 
-- Criar API rest para um login.
-    - Login:
-        - Matricula
-        - Senha
-    
-    - Cadastrar um novo aluno:
-        - Nome
-        - Curso
-        - Email
-        - Senha
-        - Gerar Matricula pra cada aluno
-        
+### How to contribute?
+- Fork this repository;
+- Create a branch with you feature: `git checkout -b my-feature`
+- Commit changes: `git commit -m 'feat: My new feature'`
+- Push branch: `git push origin my-feature`
+
+### License 
+MIT license. See license on [LICENSE](LICENSE)
